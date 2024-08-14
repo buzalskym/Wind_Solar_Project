@@ -46,13 +46,13 @@ if __name__ == "__main__":
 
     # Write to new csv file
 
-    with open("Final_Proj_Data_Minute.csv", "w", newline = "") as new_file:
+    with open("Final_Proj_Data_Minute_Morning.csv", "w", newline = "") as new_file:
         new_wind_file = csv.writer(new_file, delimiter = ",")
 
         # Write headers
 
         new_wind_file.writerow(["","Solar Data", "Wind Data"])
-        new_wind_file.writerow(["Time", "Voltage (V)", "Voltage (V)", "Speed (m/s)"])
+        new_wind_file.writerow(["Time", "Power (W)", "Voltage (V)", "Speed (m/s)"])
 
         # Write each line to the csv file
 
