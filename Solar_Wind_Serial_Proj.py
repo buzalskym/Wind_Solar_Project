@@ -13,9 +13,9 @@ import csv
 
 time_list = []
 
-# Voltage (solar) list
+# Power (solar) list
 
-vol_solar_list = []
+pow_solar_list = []
 
 # Voltage (wind) list
 
@@ -50,7 +50,7 @@ def write_to_file(final_data):
             # Write headers
 
             final_data_write.writerow(["","Solar Data", "Wind Data"])
-            final_data_write.writerow(["Time", "Voltage (V)", "Voltage (V)", "Speed (m/s)"])
+            final_data_write.writerow(["Time", "Power (W)", "Voltage (V)", "Speed (m/s)"])
 
             # Write to file
 
@@ -84,9 +84,9 @@ if __name__ == "__main__":
 
     while True:
         if serial_monitor.in_waiting:
-            # Exit if Q is pressed
+            # Exit if ctrl + a is pressed
 
-            if keyboard.is_pressed('q'):
+            if keyboard.is_pressed('ctrl+a'):
                 break
             
             # Print serial
@@ -128,7 +128,7 @@ if __name__ == "__main__":
 
                         # Append to each list
 
-                        vol_solar_list.append(float(split_string[1][10:]))
+                        pow_solar_list.append(float(split_string[1][10:]))
 
                         vol_wind_list.append(float(split_string[2][6:-1]))
 
@@ -137,7 +137,7 @@ if __name__ == "__main__":
     
     # Create a list of values
                         
-    list_values = [time_list, vol_solar_list, vol_wind_list, wind_speed]
+    list_values = [time_list, pow_solar_list, vol_wind_list, wind_speed]
 
     # Import into numpy
 
